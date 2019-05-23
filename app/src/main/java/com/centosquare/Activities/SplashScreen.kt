@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.centosquare.NavigationDrawerActivity
+import com.centosquare.OnBoarding
 import com.centosquare.R
 
 class SplashScreen : AppCompatActivity() {
@@ -18,16 +19,18 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-
-
-
         Handler().postDelayed({
+            /* Create an Intent that will start the Menu-Activity. */
+            //if user is already logged in openeing the profile activity
+            val mainIntent = Intent(this@SplashScreen, OnBoarding::class.java)
+            this@SplashScreen.startActivity(mainIntent)
+            this@SplashScreen.finish()
+        }, SPLASH_SCREEN_TIME)
 
-             //this code will delay the splashscreen activity for 4 second and then send user to main activity
-             val intent = Intent(this, NavigationDrawerActivity::class.java)
-             startActivity(intent)
-             finish()
-             }, SPLASH_SCREEN_TIME)
+
+
+
+
 
     }
 

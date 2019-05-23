@@ -203,6 +203,15 @@ class NavigationDrawerActivity : AppCompatActivity() ,View.OnClickListener {
             fragmentClass = MyMasjidFragment::class.java
         }
 
+        else if (v?.getId() == R.id.text2) {
+            //do something here if button3 is clicked
+            fragmentClass = FavouritesFragment::class.java
+        }
+
+        else if (v?.getId() == R.id.text3) {
+            fragmentClass = MasajidListFragment::class.java
+        }
+
         else if(v?.id == R.id.text4){
 
             fragmentClass = NearestMasjid::class.java
@@ -215,37 +224,41 @@ class NavigationDrawerActivity : AppCompatActivity() ,View.OnClickListener {
         }
 
         else if (v?.getId() == R.id.text6) {
-            fragmentClass = NearestJummah::class.java
+            fragmentClass = Fragment_Qibla_Direction::class.java
         }
 
-        else if (v?.getId() == R.id.text11) {
-            fragmentClass = NearestJummah::class.java
+
+
+        else if (v?.getId() == R.id.text7) {
+            fragmentClass = FragmentNotification::class.java
         }
+
+
+
+        else if (v?.getId() == R.id.text8) {
+            fragmentClass = FragmentAddMosque::class.java
+        }
+
+
 
         else if (v?.getId() == R.id.text9) {
             fragmentClass = DuaFragment::class.java
         }
 
-        else if (v?.getId() == R.id.text3) {
-            fragmentClass = MasajidListFragment::class.java
-        }
+
 
         else if (v?.getId() == R.id.text10) {
-            fragmentClass = MasajidListFragment::class.java
+            fragmentClass = FragmentSettings::class.java
         }
 
-        else if (v?.getId() == R.id.text7) {
-            fragmentClass = MasajidListFragment::class.java
+        else if (v?.getId() == R.id.text11) {
+            fragmentClass = FeedbackFragment::class.java
         }
 
-        else if (v?.getId() == R.id.text8) {
-            fragmentClass = MasajidListFragment::class.java
-        }
 
-        else if (v?.getId() == R.id.text2) {
-            //do something here if button3 is clicked
-            fragmentClass = FavouritesFragment::class.java
-        }
+
+
+
 
         if (fragment != null) {
 

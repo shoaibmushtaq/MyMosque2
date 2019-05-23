@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.centosquare.FragmentPrayerTimes
 
 import com.centosquare.R
 
@@ -39,6 +40,18 @@ class MyMasjidFragment : Fragment() {
 
 
         })
+
+        //setting on click listener to prayer times button and open prayer times fragment
+        val prayerTimeBtn = myMasjidView?.findViewById<Button>(R.id.MosqueBTN)
+
+        prayerTimeBtn?.setOnClickListener(View.OnClickListener {
+
+
+            //replace the current gragment with Prayer times fragment
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.Screen_Area, FragmentPrayerTimes()).commit()
+
+        })
+
 
 
 
