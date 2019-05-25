@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -42,9 +43,31 @@ class NavigationDrawerActivity : AppCompatActivity() ,View.OnClickListener {
 
         //set custom toolbar as action bar and set the visibilty to gone
         val toolbar:android.support.v7.widget.Toolbar = findViewById(R.id.toolbar) as android.support.v7.widget.Toolbar
-        var mTitle:TextView = toolbar.findViewById(R.id.toolbar_title);
+        var mTitle:TextView = toolbar.findViewById(R.id.toolbar_title)
         setSupportActionBar(toolbar)
         toolbar.visibility=View.GONE
+
+
+        //getting primary mosque from shared preference
+        val sharedPreferences = this.getSharedPreferences("GetPrimaryMosque", MODE_PRIVATE)
+        var primaryId = sharedPreferences.getInt("PM_ID",0)
+        val primaryName = sharedPreferences.getString("PM_NAME","")
+
+        Toast.makeText(applicationContext, "Primary Mosque ID:" + primaryId, Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, "Primary Mosque Name:" + primaryName, Toast.LENGTH_LONG).show()
+
+        Log.d("eminumber",""+primaryId)
+
+        var sharedPreferences2 = this.getSharedPreferences("LatLang", MODE_PRIVATE)
+        var longitude = sharedPreferences2.getString("Lag","")
+        val latitude = sharedPreferences2.getString("Lat","")
+
+        Log.d("longitudeMain",""+longitude)
+        Log.d("latitudeMain",""+latitude)
+
+
+
+
 
 
 
@@ -209,12 +232,12 @@ class NavigationDrawerActivity : AppCompatActivity() ,View.OnClickListener {
         }
 
         else if (v?.getId() == R.id.text3) {
-            fragmentClass = MasajidListFragment::class.java
+           // fragmentClass = MasajidListFragment::class.java
         }
 
         else if(v?.id == R.id.text4){
 
-            fragmentClass = NearestMasjid::class.java
+          //  fragmentClass = NearestMasjid::class.java
 
         }
 

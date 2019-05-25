@@ -2,6 +2,7 @@ package com.centosquare
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
+import com.centosquare.Activities.PermissionActivity
 
 class OnBoarding : AppCompatActivity() {
     private var layouts: IntArray? = null
@@ -29,19 +31,41 @@ class OnBoarding : AppCompatActivity() {
         btnSkip = findViewById(R.id.SKIPbtn)
 
         if (!isFirstTimeStartApp()) {
-            startMainActivity()
-            finish()
+            var sharedPreference = getSharedPreferences("USER_PREFERENCE", Context.MODE_PRIVATE)
+            var  userId = sharedPreference!!.getInt("ID", 0)
+
+            if (userId == 0){
+
+                startPermissionActivity()
+                finish()
+            }
+
+            else {
+                startMainActivity()
+                finish()
+            }
         }
-       btnSkip?.setOnClickListener(View.OnClickListener { startMainActivity() })
+       btnSkip?.setOnClickListener(View.OnClickListener {
+
+           startPermissionActivity()
+           finish()
+
+       }
+       )
+
         btnNext?.setOnClickListener(View.OnClickListener {
+
             val currentPage = viewPager?.getCurrentItem()?.plus(1)
+
             if (currentPage!! < layouts?.size!!) {
                 //move to next page
                 viewPager?.setCurrentItem(currentPage)
             } else {
-                startMainActivity()
+                startPermissionActivity()
+                finish()
             }
         })
+
         layouts = intArrayOf(
             R.layout.slider_1,
             R.layout.slider_2,
@@ -50,7 +74,7 @@ class OnBoarding : AppCompatActivity() {
             R.layout.slider_5
         )
 
-pagerAdapter=MyPagerAdapter(layouts!!,applicationContext)
+        pagerAdapter=MyPagerAdapter(layouts!!,applicationContext)
         viewPager?.setAdapter(pagerAdapter)
         viewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
@@ -95,6 +119,16 @@ pagerAdapter=MyPagerAdapter(layouts!!,applicationContext)
         setFirstTimeStartStatus(false)
         startActivity(Intent(applicationContext, NavigationDrawerActivity::class.java))
         finish()
+    }
+
+    private fun startPermissionActivity(){
+
+        setFirstTimeStartStatus(false)
+        startActivity(Intent(applicationContext, PermissionActivity::class.java))
+        finish()
+
+
+
     }
 
     private fun setStatusBarTransparent() {

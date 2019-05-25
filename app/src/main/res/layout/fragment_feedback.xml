@@ -37,35 +37,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/icon_message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:background="@drawable/ic_message_feedback"
-                    app:cardElevation="@dimen/_2sdp"
-            />
+            <!--<android.support.v7.widget.AppCompatImageView-->
+                    <!--android:id="@+id/icon_message"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentStart="true"-->
+                    <!--android:layout_marginTop="@dimen/_10sdp"-->
+                    <!--android:layout_marginLeft="@dimen/_10sdp"-->
+                    <!--android:background="@drawable/ic_message_feedback"-->
+                    <!--app:cardElevation="@dimen/_2sdp"-->
+            <!--/>-->
 
 
-            <TextView
+            <EditText
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Your feedback"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/feedback_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Your Feedback"
+                    android:gravity="start"
                     android:textSize="@dimen/_14sdp"
+                    android:layout_alignParentStart="true"
                     android:textColor="#00587A"
-                    android:layout_toEndOf="@id/icon_message"
+                    android:background="@android:color/transparent"
+                    android:inputType="textNoSuggestions"
                     android:layout_marginLeft="@dimen/_5sdp"/>
 
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"/>
+
 
 
         </RelativeLayout>
@@ -96,10 +95,12 @@
                     android:layout_height="match_parent">
 
                 <EditText
+                        android:id="@+id/feedback_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:hint="Your Name (optional)"
+                        android:inputType="textNoSuggestions"
+                        android:hint="Your Name"
                         android:paddingHorizontal="@dimen/_10sdp"/>
 
 
@@ -142,8 +143,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
-                        android:hint="Contact Number (optional)"
+                        android:hint="Contact Number"
                         android:paddingHorizontal="@dimen/_10sdp"
+                        android:inputType="textNoSuggestions"
+                        android:id="@+id/feedback_contact"
                 />
 
             </RelativeLayout>

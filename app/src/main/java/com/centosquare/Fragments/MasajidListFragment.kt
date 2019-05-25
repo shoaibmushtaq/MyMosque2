@@ -54,8 +54,8 @@ class MasajidListFragment : Fragment() {
         val recyclerView =  masjidListView?.findViewById(R.id.nearest_masajid_list_view) as RecyclerView
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
-        val adapter = FindMasjidAdapter(masajidName,activity as NavigationDrawerActivity )
-        recyclerView.adapter = adapter
+       // val adapter = FindMasjidAdapter(masajidName,activity as NavigationDrawerActivity )
+      //  recyclerView.adapter = adapter
 
 
     }

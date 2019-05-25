@@ -79,6 +79,6 @@
                 android:layout_below="@id/Text_HeadingMasajid"
                 android:layout_width="match_parent"
                 android:layout_centerHorizontal="true"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"/>
     </RelativeLayout>
 </RelativeLayout>
